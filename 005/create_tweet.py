@@ -2,15 +2,17 @@ import datetime
 import re
 import sys
 
-import requests
+ import requests
 
 TODAY = datetime.datetime.now()
 HASHTAG_START = '#100DaysOfCode'
 HASHTAG_END = '#Python'
 CHALLENGE_DAYS = 100
+
 START = datetime.datetime(2017, 3, 29)  # = PyBites 100 days :)
 REPO_URL = 'https://github.com/pybites/100DaysOfCode/tree/master/'
 NEW_SCRIPT = re.compile(r'\[(?P<title>.*?)\]\((?P<day>\d+)\)')
+
 
 LOG = 'https://raw.githubusercontent.com/pybites/100DaysOfCode/master/LOG.md'
 HTML = requests.get(LOG).text.split('\n')
@@ -43,6 +45,7 @@ def create_tweet(m=None):
 
 
 def get_date(args):
+    
     try:
         y, m, d = [int(a) for a in args]
     except ValueError:
